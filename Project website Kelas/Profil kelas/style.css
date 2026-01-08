@@ -1,0 +1,144 @@
+/*Dibaawah ini adalah css bagian nav-bar*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #333333;
+    color: white;
+}
+
+.image-nav img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.button img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #ffff99;
+    min-height: 80px;
+    position: relative;
+}
+
+.logo img {
+    height: 60px;
+    border-radius: 50%;
+}
+
+.menu-links {
+    display: flex;
+    gap: 30px;
+}
+
+.menu-links a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.menu-links a:hover {
+    text-decoration: underline;
+}
+
+.login-button a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.login-button img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Hamburger Icon */
+.hamburger-checkbox {
+    display: none; /* sembunyiin checkbox asli */
+}
+
+.hamburger-icon {
+    display: none; /* sembunyiin dulu, hanya muncul di HP */
+    flex-direction: column;
+    cursor: pointer;
+    gap: 6px;
+}
+
+.hamburger-icon span {
+    width: 30px;
+    height: 4px;
+    background-color: #333;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+/* Mobile Menu (dropdown ke bawah) */
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    background-color: #ffff99;
+    padding: 20px;
+    gap: 15px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.mobile-menu a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+
+@media (max-width: 768px) {
+    .menu-links {
+        display: none; 
+    }
+
+    .login-button {
+        display: none; 
+    }
+
+    .hamburger-icon {
+        display: flex; 
+    }
+
+    /* Saat checkbox diceklis (hamburger aktif) */
+    #hamburger-toggle:checked ~ .mobile-menu {
+        display: flex;
+    }
+
+    /* Animasi hamburger jadi X */
+    #hamburger-toggle:checked + .hamburger-icon span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    #hamburger-toggle:checked + .hamburger-icon span:nth-child(2) {
+        opacity: 0;
+    }
+    #hamburger-toggle:checked + .hamburger-icon span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+}
+
